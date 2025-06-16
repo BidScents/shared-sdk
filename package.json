@@ -1,20 +1,47 @@
 {
-  "name": "shared-sdk",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
+  "name": "@bid-scents/shared-sdk",
+  "version": "1.0.0",
+  "description": "Shared SDK for marketplace applications",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit",
+    "generate-api": "openapi-typescript-codegen --input http://localhost:3000/api-docs --output src/api",
+    "prepublishOnly": "bun run clean && bun run build && bun run test"
+  },
+  "keywords": ["marketplace", "sdk", "react", "typescript"],
+  "author": "Shawarmaa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BidScents/shared-sdk.git"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "zustand": "^5.0.5",
+    "zod": "^3.25.64",
+    "@tanstack/react-query": "^5.80.7"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
+    "typescript": "^5.8.3",
+    "tsup": "^8.0.0",
+    "vitest": "^1.0.0",
+    "eslint": "^8.0.0",
     "openapi-typescript-codegen": "^0.29.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.80.7",
-    "zod": "^3.25.64",
-    "zustand": "^5.0.5"
   }
 }
