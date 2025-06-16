@@ -22,9 +22,6 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Generated API code (regenerate as needed)
-src/api/
-
 # caches
 .eslintcache
 .cache
