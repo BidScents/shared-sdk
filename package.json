@@ -4,9 +4,17 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "openapi-typescript-codegen": "^0.29.0"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.80.7",
+    "zod": "^3.25.64",
+    "zustand": "^5.0.5"
   }
 }
