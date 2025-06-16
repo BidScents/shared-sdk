@@ -1,29 +1,33 @@
-Shared SDK Setup Guide
+# Shared SDK Setup Guide
 
 A modular and reusable SDK for the Bid-Scents Marketplace, built with TypeScript, Zustand, React Query, and Zod. This SDK provides stores, hooks, and utilities shared across web and mobile apps.
 
-⸻
+---
 
-Quick Start
+## Quick Start
 
-1. Clone and Initialize
-
+### 1. Clone and Initialize
+```bash
 git clone https://github.com/Shawarmaa/shared-sdk.git
 cd shared-sdk
 bun install  # or npm install
+```
 
-2. Build the SDK
-
+### 2. Build the SDK
+```bash
 bun run build
+```
 
-3. Regenerate the API (when backend is live)
-
+### 3. Regenerate the API (when backend is live)
+```bash
 bun run generate-api
+```
 
-⸻
+---
 
-Project Structure
+## Project Structure
 
+```
 shared-sdk/
 ├── src/
 │   ├── api/                # OpenAPI-generated client
@@ -39,11 +43,13 @@ shared-sdk/
 ├── package.json
 ├── tsconfig.json
 └── README.md
+```
 
-⸻
+---
 
-Available Scripts
+## Available Scripts
 
+```json
 "scripts": {
   "build": "tsc",
   "dev": "tsc --watch",
@@ -52,38 +58,43 @@ Available Scripts
   "prepublishOnly": "npm run clean && npm run build",
   "test": "echo \"No tests yet\" && exit 0"
 }
+```
 
-⸻
+---
 
-Dependencies
+## Dependencies
 
-Category	Packages
-Core	zustand, zod, @tanstack/react-query
-Peer	react >= 18.0.0
-Dev	typescript, @types/react, @types/node, openapi-typescript-codegen
+| Category | Packages |
+|----------|----------|
+| **Core** | `zustand`, `zod`, `@tanstack/react-query` |
+| **Peer** | `react >= 18.0.0` |
+| **Dev** | `typescript`, `@types/react`, `@types/node`, `openapi-typescript-codegen` |
 
-⸻
+---
 
-How It Works
-	•	Zustand manages state (auth, listings, etc.)
-	•	React Query can be used to handle remote data
-	•	Zod handles runtime schema validation
-	•	OpenAPI codegen auto-generates src/api client from your backend
-	•	All modules are re-exported from src/index.ts for clean usage
+## How It Works
 
-⸻
+- **Zustand** manages state (auth, listings, etc.)
+- **React Query** can be used to handle remote data
+- **Zod** handles runtime schema validation
+- **OpenAPI codegen** auto-generates `src/api` client from your backend
+- All modules are re-exported from `src/index.ts` for clean usage
 
-Publishing
+---
+
+## Publishing
 
 For scoped publishing to npm:
 
+```bash
 npm login
 npm publish --access public
+```
 
-Make sure package.json has "name": "@bid-scents/shared-sdk" and correct main/types/files.
+Make sure `package.json` has `"name": "@bid-scents/shared-sdk"` and correct `main`/`types`/`files`.
 
-⸻
+---
 
-Final Notes
+## Final Notes
 
 Use this SDK to abstract logic from your web and mobile apps. Keep stores small and focused, validate all inputs with Zod, and auto-generate API clients whenever your backend changes.
