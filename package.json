@@ -16,7 +16,7 @@
     "test": "vitest",
     "lint": "eslint src --ext .ts,.tsx",
     "type-check": "tsc --noEmit",
-    "generate-api": "openapi-typescript-codegen --input http://localhost:3000/api-docs --output src/api",
+    "generate-api": "openapi -i http://localhost:8000/openapi.json -o src/api",
     "prepublishOnly": "bun run clean && bun run build && bun run test"
   },
   "keywords": ["marketplace", "sdk", "react", "typescript"],
