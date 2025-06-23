@@ -1,6 +1,6 @@
 # Shared SDK Setup Guide
 
-A modular and reusable SDK for the Bid-Scents Marketplace, built with TypeScript, Zustand, React Query, and Zod. This SDK provides stores, hooks, and utilities shared across web and mobile apps.
+A modular and reusable SDK for the Bid-Scents Marketplace, built with TypeScript, Zustand, and Zod. This SDK provides stores, API clients, and utilities shared across web and mobile apps. React Query is used in the consuming applications for data fetching.
 
 ---
 
@@ -33,7 +33,6 @@ shared-sdk/
 │   ├── api/                # OpenAPI-generated client
 │   ├── config/             # Configuration
 │   ├── stores/             # Zustand stores (auth, listings, etc.)
-│   ├── hooks/              # Custom React hooks
 │   ├── utils/              # Utility modules
 │   ├── types/              # Shared types
 │   └── index.ts            # Main SDK export
@@ -66,7 +65,7 @@ shared-sdk/
 
 | Category | Packages |
 |----------|----------|
-| **Core** | `zustand`, `zod`, `@tanstack/react-query` |
+| **Core** | `zustand`, `zod` |
 | **Peer** | `react >= 18.0.0` |
 | **Dev** | `typescript`, `@types/react`, `@types/node`, `openapi-typescript-codegen` |
 
@@ -74,11 +73,33 @@ shared-sdk/
 
 ## How It Works
 
-- **Zustand** manages state (auth, listings, etc.)
-- **React Query** can be used to handle remote data
+- **Zustand** manages client-side state (auth, listings, etc.)
 - **Zod** handles runtime schema validation
-- **OpenAPI codegen** auto-generates `src/api` client from your backend
+- **OpenAPI codegen** auto-generates `src/api` client functions from your backend
+- **React Query** is used in consuming apps to handle remote data fetching
 - All modules are re-exported from `src/index.ts` for clean usage
+
+## Usage in Apps
+
+The SDK provides the building blocks, while apps handle data fetching:
+
+```typescript
+// In your web/mobile app
+import { apiClient, authStore } from '@bid-scents/shared-sdk'
+import { useQuery } from '@tanstack/react-query'
+
+// App-specific React Query hooks
+const useListings = () => {
+  return useQuery({
+    queryKey: ['listings'],
+    queryFn: () => apiClient.getListings(),
+    // App-specific configuration
+  })
+}
+
+// Use SDK stores directly
+const { user, login } = authStore()
+```
 
 ---
 
@@ -97,4 +118,6 @@ Make sure `package.json` has `"name": "@bid-scents/shared-sdk"` and correct `mai
 
 ## Final Notes
 
-Use this SDK to abstract logic from your web and mobile apps. Keep stores small and focused, validate all inputs with Zod, and auto-generate API clients whenever your backend changes.
+Use this SDK to abstract business logic and API clients from your web and mobile apps. Keep stores small and focused, validate all inputs with Zod, and auto-generate API clients whenever your backend changes. 
+
+Apps should implement their own React Query hooks using the SDK's API client functions, allowing for app-specific caching strategies and data fetching patterns.
