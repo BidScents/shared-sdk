@@ -8,7 +8,7 @@ A modular and reusable SDK for the Bid-Scents Marketplace, built with TypeScript
 
 ### 1. Clone and Initialize
 ```bash
-git clone https://github.com/Shawarmaa/shared-sdk.git
+git clone https://github.com/BidScents/shared-sdk.git
 cd shared-sdk
 bun install  # or npm install
 ```
