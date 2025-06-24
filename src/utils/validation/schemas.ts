@@ -30,21 +30,19 @@ export const onboardingSchema = z.object({
   profile_image_url: z
     .string()
     .url('Must be a valid URL')
-    .optional()
-    .or(z.literal('')),
+    .optional(),
   
   cover_image_url: z
     .string()
     .url('Must be a valid URL')
-    .optional()
-    .or(z.literal('')),
+    .optional(),
   
   bio: z
     .string()
     .max(500, 'Bio must be less than 500 characters')
     .optional()
-    .or(z.literal(''))
 })
+
 
 /**
  * TypeScript type inferred from the onboarding validation schema.
