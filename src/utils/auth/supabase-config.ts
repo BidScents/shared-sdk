@@ -1,4 +1,3 @@
-// src/utils/auth/supabase-config.ts
 // Supabase authentication configuration and token management.
 
 import { useAuthStore } from '../../stores/auth'

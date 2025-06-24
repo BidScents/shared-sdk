@@ -1,4 +1,3 @@
-// src/stores/auth.ts
 // Manages user authentication state with Supabase integration.
 
 import { create } from 'zustand'
