@@ -108,8 +108,8 @@ const { user, login } = authStore()
 For scoped publishing to npm:
 
 ```bash
-npm login
-npm publish --access public
+bun login
+bun publish --access public
 ```
 
 Make sure `package.json` has `"name": "@bid-scents/shared-sdk"` and correct `main`/`types`/`files`.
