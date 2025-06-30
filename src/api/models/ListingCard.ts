@@ -18,6 +18,10 @@ export type ListingCard = {
      */
     brand: string;
     /**
+     * Volume of the listing
+     */
+    volume: number;
+    /**
      * Remaining volume percentage of the listing
      */
     remaining_percentage: number;
