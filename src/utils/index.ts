@@ -6,8 +6,10 @@ export {
   } from './auth/supabase-config'
   
 export { 
+    loginSchema,
+    signUpSchema,
     onboardingSchema, 
     usernameSchema 
   } from './validation/schemas'
   
-export type { OnboardingFormData } from './validation/schemas'
+export type { OnboardingFormData, LoginFormData, SignUpFormData } from './validation/schemas'
