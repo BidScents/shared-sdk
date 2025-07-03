@@ -1,7 +1,6 @@
-// Manages user authentication state with Supabase integration.
-
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { persist, createJSONStorage } from 'zustand/middleware'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { User } from '../api/models/User'
 
 interface AuthState {
@@ -9,18 +8,22 @@ interface AuthState {
   session: any | null
   isAuthenticated: boolean
   isOnboarded: boolean
+  loading: boolean
+  error: string | null
   setUser: (user: User | null) => void
   setSession: (session: any | null) => void
+  setLoading: (loading: boolean) => void
+  setError: (error: string | null) => void
   logout: () => void
 }
 
 /**
  * Zustand store for authentication state management with Supabase.
  * 
- * Manages user data and Supabase session which contains tokens.
+ * Manages user data, session state, loading states, and errors.
  * Supabase automatically handles token refresh in the background.
  * 
- * @returns Auth store with user state, session, and actions
+ * @returns Auth store with user state, session, loading, and actions
  */
 export const useAuthStore = create<AuthState>()(
   persist(
@@ -29,6 +32,8 @@ export const useAuthStore = create<AuthState>()(
       session: null,
       isAuthenticated: false,
       isOnboarded: false,
+      loading: true, // Start with loading true
+      error: null,
 
       /**
        * Updates the current user and onboarding status.
@@ -38,7 +43,9 @@ export const useAuthStore = create<AuthState>()(
       setUser: (user) => {
         set({
           user,
-          isOnboarded: !!user?.onboarded_at
+          isOnboarded: !!user?.onboarded_at,
+          loading: false, // Clear loading when user is set
+          error: null // Clear any errors
         })
       },
 
@@ -50,8 +57,27 @@ export const useAuthStore = create<AuthState>()(
       setSession: (session) => {
         set({
           session,
-          isAuthenticated: !!session
+          isAuthenticated: !!session,
+          loading: false // Clear loading when session is determined
         })
+      },
+
+      /**
+       * Sets the loading state.
+       * 
+       * @param loading - Loading state boolean
+       */
+      setLoading: (loading) => {
+        set({ loading })
+      },
+
+      /**
+       * Sets the error state.
+       * 
+       * @param error - Error message or null to clear
+       */
+      setError: (error) => {
+        set({ error, loading: false })
       },
 
       /**
@@ -62,17 +88,21 @@ export const useAuthStore = create<AuthState>()(
           user: null,
           session: null,
           isAuthenticated: false,
-          isOnboarded: false
+          isOnboarded: false,
+          loading: false,
+          error: null
         })
       }
     }),
     {
       name: 'auth-storage',
+      storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({
         user: state.user,
         session: state.session,
         isAuthenticated: state.isAuthenticated,
         isOnboarded: state.isOnboarded
+        // Don't persist loading or error states
       })
     }
   )
