@@ -1,6 +1,6 @@
 {
   "name": "@bid-scents/shared-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shared SDK for marketplace applications",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
