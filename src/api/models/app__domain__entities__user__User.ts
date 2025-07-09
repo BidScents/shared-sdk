@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type User = {
+export type app__domain__entities__user__User = {
     id: string;
     username: string;
     first_name: string;

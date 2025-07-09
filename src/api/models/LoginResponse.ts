@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { User } from './User';
+import type { app__domain__entities__user__User } from './app__domain__entities__user__User';
 export type LoginResponse = {
     /**
      * Indicates whether the user has completed onboarding.
@@ -11,6 +11,10 @@ export type LoginResponse = {
     /**
      * The user's profile information if available.
      */
-    profile: (User | null);
+    profile: (app__domain__entities__user__User | null);
+    /**
+     * List of favorite listing IDs associated with the user.
+     */
+    favorites: Array<string>;
 };
 
