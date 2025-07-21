@@ -13,7 +13,7 @@ export type app__domain__entities__user__User = {
     location?: (string | null);
     is_admin?: boolean;
     badges?: Array<string>;
-    eligible_for_swap_until?: (string | null);
+    eligible_for_swap?: boolean;
     onboarded_at?: (string | null);
 };
 

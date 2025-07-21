@@ -6,7 +6,7 @@ import type { app__api__v1__models__common__User } from './app__api__v1__models_
 /**
  * Model representing bids in an auction.
  */
-export type Bid = {
+export type app__api__v1__models__listing__Bid = {
     /**
      * Unique identifier for the bid
      */

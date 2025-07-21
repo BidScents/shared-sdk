@@ -2,8 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { app__api__v1__models__listing__Bid } from './app__api__v1__models__listing__Bid';
 import type { AuctionStatus } from './AuctionStatus';
-import type { Bid } from './Bid';
 /**
  * Model representing auction details for a listing.
  */
@@ -23,11 +23,15 @@ export type AuctionDetails = {
     /**
      * List of bids placed in the auction
      */
-    bids: Array<Bid>;
+    bids: Array<app__api__v1__models__listing__Bid>;
     /**
      * Minimum increment for each bid in the auction
      */
     bid_increment: number;
+    /**
+     * Total number of bids placed in the auction
+     */
+    bid_count: number;
     /**
      * End time for the auction, in ISO 8601 format
      */

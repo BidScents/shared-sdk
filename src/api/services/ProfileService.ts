@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { app__api__v1__models__common__User } from '../models/app__api__v1__models__common__User';
 import type { app__domain__entities__user__User } from '../models/app__domain__entities__user__User';
 import type { EditProfileRequest } from '../models/EditProfileRequest';
 import type { ListingSearchRequest } from '../models/ListingSearchRequest';
@@ -122,6 +123,28 @@ export class ProfileService {
             },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Get User Preview
+     * Get a user preview by user ID.
+     * This is used for previews in comments, bids, etc.
+     * @param userId
+     * @returns app__api__v1__models__common__User Successful Response
+     * @throws ApiError
+     */
+    public static getUserPreviewV1ProfileUserIdPreviewGet(
+        userId: string,
+    ): CancelablePromise<app__api__v1__models__common__User> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/profile/{user_id}/preview',
+            path: {
+                'user_id': userId,
+            },
             errors: {
                 422: `Validation Error`,
             },

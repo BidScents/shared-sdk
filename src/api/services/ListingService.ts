@@ -180,12 +180,12 @@ export class ListingService {
      * @returns ListingDetailsResponse Successful Response
      * @throws ApiError
      */
-    public static getListingDetailsV1ListingDetailsListingIdGet(
+    public static getListingDetailsV1ListingListingIdDetailsGet(
         listingId: string,
     ): CancelablePromise<ListingDetailsResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/v1/listing/details/{listing_id}',
+            url: '/v1/listing/{listing_id}/details',
             path: {
                 'listing_id': listingId,
             },
