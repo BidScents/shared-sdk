@@ -37,5 +37,9 @@ export type FilterParameter = {
      * List of box conditions to filter by
      */
     box_conditions?: (Array<ListingBoxCondition> | null);
+    /**
+     * List of seller IDs to filter by
+     */
+    seller_ids?: (Array<string> | null);
 };
 

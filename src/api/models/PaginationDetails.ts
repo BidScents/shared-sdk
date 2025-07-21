@@ -8,6 +8,10 @@ export type PaginationDetails = {
      */
     page: number;
     /**
+     * Total number of results found for the query
+     */
+    found: number;
+    /**
      * Total number of pages for this query
      */
     total_pages: number;

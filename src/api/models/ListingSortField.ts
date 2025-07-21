@@ -5,7 +5,7 @@
 /**
  * Enum for sorting fields in search queries.
  */
-export enum SortField {
+export enum ListingSortField {
     PRICE = 'price',
     REMAINING_VOLUME = 'remaining_volume',
     PURCHASE_YEAR = 'purchase_year',

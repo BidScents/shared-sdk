@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { SortField } from './SortField';
+import type { ListingSortField } from './ListingSortField';
 /**
  * Model representing a sort parameter for search queries.
  */
@@ -10,7 +10,7 @@ export type SortParameter = {
     /**
      * Field to sort by
      */
-    field?: SortField;
+    field?: ListingSortField;
     /**
      * Whether to sort in descending order
      */

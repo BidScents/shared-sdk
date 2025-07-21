@@ -32,7 +32,7 @@ export type ListingCard = {
     /**
      * URL of the listing image
      */
-    image_url: string;
+    image_url?: (string | null);
     /**
      * Number of favorites for the listing
      */
