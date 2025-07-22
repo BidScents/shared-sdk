@@ -2,8 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__api__v1__models__common__User } from '../models/app__api__v1__models__common__User';
-import type { app__domain__entities__user__User } from '../models/app__domain__entities__user__User';
 import type { EditProfileRequest } from '../models/EditProfileRequest';
 import type { ListingSearchRequest } from '../models/ListingSearchRequest';
 import type { ListingTab } from '../models/ListingTab';
@@ -11,6 +9,8 @@ import type { ProfileResponse } from '../models/ProfileResponse';
 import type { ProfileTab } from '../models/ProfileTab';
 import type { ReviewSearchRequest } from '../models/ReviewSearchRequest';
 import type { ReviewsTab } from '../models/ReviewsTab';
+import type { User } from '../models/User';
+import type { UserPreview } from '../models/UserPreview';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -108,13 +108,13 @@ export class ProfileService {
      * Edit profile details for a user.
      * @param userId
      * @param requestBody
-     * @returns app__domain__entities__user__User Successful Response
+     * @returns User Successful Response
      * @throws ApiError
      */
     public static editProfileV1ProfileUserIdEditProfilePatch(
         userId: string,
         requestBody: EditProfileRequest,
-    ): CancelablePromise<app__domain__entities__user__User> {
+    ): CancelablePromise<User> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/v1/profile/{user_id}/edit-profile',
@@ -133,12 +133,12 @@ export class ProfileService {
      * Get a user preview by user ID.
      * This is used for previews in comments, bids, etc.
      * @param userId
-     * @returns app__api__v1__models__common__User Successful Response
+     * @returns UserPreview Successful Response
      * @throws ApiError
      */
     public static getUserPreviewV1ProfileUserIdPreviewGet(
         userId: string,
-    ): CancelablePromise<app__api__v1__models__common__User> {
+    ): CancelablePromise<UserPreview> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/profile/{user_id}/preview',

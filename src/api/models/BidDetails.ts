@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__api__v1__models__common__User } from './app__api__v1__models__common__User';
+import type { UserPreview } from './UserPreview';
 /**
  * Model representing bids in an auction.
  */
-export type app__api__v1__models__listing__Bid = {
+export type BidDetails = {
     /**
      * Unique identifier for the bid
      */
@@ -14,7 +14,7 @@ export type app__api__v1__models__listing__Bid = {
     /**
      * User who placed the bid or None if the user has deleted their account
      */
-    bidder?: (app__api__v1__models__common__User | null);
+    bidder?: (UserPreview | null);
     /**
      * Amount of the bid
      */

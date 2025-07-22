@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__api__v1__models__common__User } from './app__api__v1__models__common__User';
+import type { UserPreview } from './UserPreview';
 /**
  * Model representing comments on a listing
  */
@@ -14,7 +14,7 @@ export type CommentDetails = {
     /**
      * User who wrote the comment or None if the user has deleted their account
      */
-    commenter?: (app__api__v1__models__common__User | null);
+    commenter?: (UserPreview | null);
     /**
      * The text content of the comment
      */

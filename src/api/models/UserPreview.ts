@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type app__api__v1__models__common__User = {
+export type UserPreview = {
     /**
      * Unique identifier for the user
      */

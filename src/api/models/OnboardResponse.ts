@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__domain__entities__user__User } from './app__domain__entities__user__User';
+import type { User } from './User';
 export type OnboardResponse = {
     /**
      * A message indicating the result of the onboarding process.
@@ -11,6 +11,6 @@ export type OnboardResponse = {
     /**
      * The user's profile information after onboarding.
      */
-    profile: app__domain__entities__user__User;
+    profile: User;
 };
 

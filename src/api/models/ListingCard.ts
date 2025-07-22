@@ -2,8 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__api__v1__models__common__User } from './app__api__v1__models__common__User';
 import type { ListingType } from './ListingType';
+import type { UserPreview } from './UserPreview';
 export type ListingCard = {
     /**
      * Unique identifier for the listing
@@ -40,7 +40,7 @@ export type ListingCard = {
     /**
      * Seller information for the listing
      */
-    seller: app__api__v1__models__common__User;
+    seller: UserPreview;
     /**
      * Type of the listing (e.g., FIXED_PRICE, NEGOTIABLE)
      */

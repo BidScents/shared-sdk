@@ -2,10 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__api__v1__models__common__User } from './app__api__v1__models__common__User';
 import type { AuctionDetails } from './AuctionDetails';
 import type { CommentDetails } from './CommentDetails';
 import type { ListingDetails } from './ListingDetails';
+import type { UserPreview } from './UserPreview';
 /**
  * Response model for listing details.
  */
@@ -17,7 +17,7 @@ export type ListingDetailsResponse = {
     /**
      * Seller information for the listing
      */
-    seller: app__api__v1__models__common__User;
+    seller: UserPreview;
     /**
      * List of image URLs for the listing
      */

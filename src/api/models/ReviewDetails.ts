@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { app__api__v1__models__common__User } from './app__api__v1__models__common__User';
+import type { UserPreview } from './UserPreview';
 export type ReviewDetails = {
     /**
      * Unique identifier for the review
@@ -23,7 +23,7 @@ export type ReviewDetails = {
     /**
      * User who wrote the review
      */
-    reviewer: (app__api__v1__models__common__User | null);
+    reviewer: (UserPreview | null);
     /**
      * Date when the review was written, in ISO format
      */

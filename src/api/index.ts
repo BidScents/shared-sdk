@@ -7,14 +7,12 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
-export type { app__api__v1__models__common__User } from './models/app__api__v1__models__common__User';
-export type { app__api__v1__models__listing__Bid } from './models/app__api__v1__models__listing__Bid';
-export type { app__domain__entities__bid__Bid } from './models/app__domain__entities__bid__Bid';
-export type { app__domain__entities__user__User } from './models/app__domain__entities__user__User';
 export type { Auction } from './models/Auction';
 export type { AuctionDetails } from './models/AuctionDetails';
 export type { AuctionExpiryResponse } from './models/AuctionExpiryResponse';
 export { AuctionStatus } from './models/AuctionStatus';
+export type { Bid } from './models/Bid';
+export type { BidDetails } from './models/BidDetails';
 export type { BidResponse } from './models/BidResponse';
 export type { Body_place_bid_v1_auctions__listing_id__bid_post } from './models/Body_place_bid_v1_auctions__listing_id__bid_post';
 export type { Body_process_expiry_v1_auctions_cron_expiry_post } from './models/Body_process_expiry_v1_auctions_cron_expiry_post';
@@ -55,6 +53,8 @@ export type { SearchRequest } from './models/SearchRequest';
 export type { SearchResponse } from './models/SearchResponse';
 export type { SortParameter } from './models/SortParameter';
 export type { UpdateListingRequest } from './models/UpdateListingRequest';
+export type { User } from './models/User';
+export type { UserPreview } from './models/UserPreview';
 export type { ValidationError } from './models/ValidationError';
 
 export { AuctionsService } from './services/AuctionsService';

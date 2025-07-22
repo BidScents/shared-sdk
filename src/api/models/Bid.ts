@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type app__domain__entities__bid__Bid = {
+export type Bid = {
     id: string;
     bidder_id: string;
     listing_id: string;
