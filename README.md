@@ -54,7 +54,7 @@ shared-sdk/
   "dev": "tsc --watch",
   "clean": "rm -rf dist",
   "generate-api": "openapi-typescript-codegen --input http://localhost:3000/api-docs --output src/api",
-  "prepublishOnly": "npm run clean && npm run build",
+  "prepublishOnly": "bun run clean && bun run build",
   "test": "echo \"No tests yet\" && exit 0"
 }
 ```
