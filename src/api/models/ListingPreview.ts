@@ -2,9 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type UserPreview = {
+export type ListingPreview = {
     id: string;
-    username: string;
-    profile_image_url?: (string | null);
+    name: string;
+    price: number;
+    image_url?: (string | null);
 };
 

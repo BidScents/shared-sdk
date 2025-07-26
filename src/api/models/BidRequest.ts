@@ -2,10 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type Body_process_expiry_v1_auctions_cron_expiry_post = {
+/**
+ * Request model for placing a bid on an auction listing.
+ */
+export type BidRequest = {
     /**
-     * List of auction IDs to process
+     * Amount of the bid
      */
-    auction_ids: Array<string>;
+    amount: number;
 };
 

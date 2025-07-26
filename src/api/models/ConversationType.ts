@@ -2,9 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type UserPreview = {
-    id: string;
-    username: string;
-    profile_image_url?: (string | null);
-};
-
+export enum ConversationType {
+    DIRECT = 'DIRECT',
+    GROUP = 'GROUP',
+    CHANNEL = 'CHANNEL',
+}

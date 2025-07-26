@@ -45,7 +45,7 @@ export class AuthService {
     /**
      * Check Unique Username
      * Check if a username is unique.
-     * @param username
+     * @param username Username to check for uniqueness
      * @returns CheckUniqueUsernameResponse Successful Response
      * @throws ApiError
      */
