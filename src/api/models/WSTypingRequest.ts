@@ -2,10 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { MessageReqData } from './MessageReqData';
 import type { TypingReqData } from './TypingReqData';
 import type { WSType } from './WSType';
-export type WSMessageRequest = {
+export type WSTypingRequest = {
     /**
      * Type of the WebSocket request
      */
@@ -13,6 +12,6 @@ export type WSMessageRequest = {
     /**
      * Data associated with the WebSocket message
      */
-    data: (MessageReqData | TypingReqData);
+    data: TypingReqData;
 };
 

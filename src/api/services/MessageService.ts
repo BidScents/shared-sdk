@@ -4,13 +4,39 @@
 /* eslint-disable */
 import type { ConversationResponse } from '../models/ConversationResponse';
 import type { Message } from '../models/Message';
+import type { MessageRequest } from '../models/MessageRequest';
+import type { MessageResData } from '../models/MessageResData';
 import type { MessagesSummary } from '../models/MessagesSummary';
-import type { WSMessageRequest } from '../models/WSMessageRequest';
 import type { WSMessageResponse } from '../models/WSMessageResponse';
+import type { WSTypingRequest } from '../models/WSTypingRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class MessageService {
+    /**
+     * Send Message
+     * @param conversationId
+     * @param requestBody
+     * @returns MessageResData Successful Response
+     * @throws ApiError
+     */
+    public static sendMessageV1MessageConversationIdPost(
+        conversationId: string,
+        requestBody: MessageRequest,
+    ): CancelablePromise<MessageResData> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/v1/message/{conversation_id}',
+            path: {
+                'conversation_id': conversationId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
     /**
      * Contact Seller
      * Endpoint to initiate contact or get existing conversation with a seller.
@@ -123,7 +149,7 @@ export class MessageService {
      * @throws ApiError
      */
     public static getWsTypesV1MessageWsTypesGet(
-        requestBody: (WSMessageRequest | null),
+        requestBody: (WSTypingRequest | null),
     ): CancelablePromise<WSMessageResponse> {
         return __request(OpenAPI, {
             method: 'GET',

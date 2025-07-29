@@ -4,6 +4,8 @@
 /* eslint-disable */
 import type { BidRequest } from '../models/BidRequest';
 import type { BidResponse } from '../models/BidResponse';
+import type { WSBidResponse } from '../models/WSBidResponse';
+import type { WSJoinResponse } from '../models/WSJoinResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -31,6 +33,18 @@ export class AuctionsService {
             errors: {
                 422: `Validation Error`,
             },
+        });
+    }
+    /**
+     * Get Ws Types
+     * Dummy endpoint so openapi codegen can generate the WebSocket types.
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static getWsTypesV1AuctionsWsTypesGet(): CancelablePromise<(WSBidResponse | WSJoinResponse)> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/auctions/ws-types',
         });
     }
 }

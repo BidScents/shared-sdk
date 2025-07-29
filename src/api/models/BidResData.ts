@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-/**
- * Response model for a bid placed on an auction listing.
- */
-export type BidResponse = {
+import type { UserPreview } from './UserPreview';
+export type BidResData = {
     /**
      * Unique identifier for the bid
      */
@@ -14,6 +12,10 @@ export type BidResponse = {
      * Amount of the bid
      */
     amount: number;
+    /**
+     * Information about the user who placed the bid
+     */
+    bidder: UserPreview;
     /**
      * Timestamp when the bid was placed, in ISO 8601 format
      */

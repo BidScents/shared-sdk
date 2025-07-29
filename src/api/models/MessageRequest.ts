@@ -6,13 +6,9 @@ import type { ActionContent } from './ActionContent';
 import type { FileContent } from './FileContent';
 import type { MessageType } from './MessageType';
 import type { TextContent } from './TextContent';
-export type MessageReqData = {
+export type MessageRequest = {
     /**
-     * ID of the conversation
-     */
-    conversation_id: string;
-    /**
-     * Type of the message content
+     * Type of message
      */
     content_type: MessageType;
     /**
