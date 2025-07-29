@@ -72,12 +72,10 @@ export const onboardingSchema = z.object({
   
   profile_image_url: z
     .string()
-    .url('Must be a valid URL')
     .optional(),
   
   cover_image_url: z
     .string()
-    .url('Must be a valid URL')
     .optional(),
   
   bio: z
