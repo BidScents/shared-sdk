@@ -52,6 +52,10 @@ export type ListingDetails = {
      */
     volume: number;
     /**
+     * Batch code of the item, if exists
+     */
+    batch_code?: (string | null);
+    /**
      * Remaining volume percentage of the item
      */
     remaining_percentage: number;

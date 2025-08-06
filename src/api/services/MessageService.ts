@@ -161,16 +161,4 @@ export class MessageService {
             },
         });
     }
-    /**
-     * Get Connected Users
-     * Get a list of currently connected users.
-     * @returns string Successful Response
-     * @throws ApiError
-     */
-    public static getConnectedUsersV1MessageConnectedUsersGet(): CancelablePromise<Array<string>> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/v1/message/connected-users',
-        });
-    }
 }

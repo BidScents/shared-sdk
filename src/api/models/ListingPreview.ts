@@ -4,6 +4,7 @@
 /* eslint-disable */
 export type ListingPreview = {
     id: string;
+    seller_id: string;
     name: string;
     price: number;
     image_url?: (string | null);
