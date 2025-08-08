@@ -10,4 +10,5 @@ export enum WSType {
     BID = 'BID',
     JOIN = 'JOIN',
     NOTIFICATION = 'NOTIFICATION',
+    AUCTION_EXTENDED = 'AUCTION_EXTENDED',
 }

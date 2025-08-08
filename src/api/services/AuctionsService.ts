@@ -5,6 +5,7 @@
 import type { BidRequest } from '../models/BidRequest';
 import type { BidResponse } from '../models/BidResponse';
 import type { WSBidResponse } from '../models/WSBidResponse';
+import type { WSExtensionResponse } from '../models/WSExtensionResponse';
 import type { WSJoinResponse } from '../models/WSJoinResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -41,7 +42,7 @@ export class AuctionsService {
      * @returns any Successful Response
      * @throws ApiError
      */
-    public static getWsTypesV1AuctionsWsTypesGet(): CancelablePromise<(WSBidResponse | WSJoinResponse)> {
+    public static getWsTypesV1AuctionsWsTypesGet(): CancelablePromise<(WSBidResponse | WSJoinResponse | WSExtensionResponse)> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/auctions/ws-types',
