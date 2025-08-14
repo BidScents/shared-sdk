@@ -10,11 +10,13 @@ interface AuthState {
   isOnboarded: boolean
   loading: boolean
   error: string | null
+  deviceToken: string | null
   setUser: (user: User | null) => void
   setSession: (session: any | null) => void
   setLoading: (loading: boolean) => void
   setError: (error: string | null) => void
   logout: () => void
+  setDeviceToken: (deviceToken: string | null) => void
 }
 
 /**
@@ -32,8 +34,9 @@ export const useAuthStore = create<AuthState>()(
       session: null,
       isAuthenticated: false,
       isOnboarded: false,
-      loading: true, // Start with loading true
+      loading: true,
       error: null,
+      deviceToken: null,
 
       /**
        * Updates the current user and onboarding status.
@@ -92,6 +95,15 @@ export const useAuthStore = create<AuthState>()(
           loading: false,
           error: null
         })
+      },
+
+      /**
+       * Sets the device token for push notifications.
+       * 
+       * @param deviceToken - Device token string or null to clear
+       */
+      setDeviceToken: (deviceToken) => {
+        set({ deviceToken })
       }
     }),
     {
@@ -101,7 +113,8 @@ export const useAuthStore = create<AuthState>()(
         user: state.user,
         session: state.session,
         isAuthenticated: state.isAuthenticated,
-        isOnboarded: state.isOnboarded
+        isOnboarded: state.isOnboarded,
+        deviceToken: state.deviceToken
         // Don't persist loading or error states
       })
     }
