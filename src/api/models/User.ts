@@ -13,7 +13,6 @@ export type User = {
     location?: (string | null);
     is_admin?: boolean;
     badges?: Array<string>;
-    eligible_for_swap?: boolean;
     onboarded_at?: (string | null);
 };
 
