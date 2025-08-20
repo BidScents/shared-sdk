@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { User } from '../api/models/User'
+import type { LoginResponse } from '../api/models/LoginResponse'
 
 interface AuthState {
   user: User | null
@@ -13,6 +14,7 @@ interface AuthState {
   deviceToken: string | null
   setUser: (user: User | null) => void
   setSession: (session: any | null) => void
+  setAuthState: (session: any | null, loginResponse: LoginResponse | null) => void
   setLoading: (loading: boolean) => void
   setError: (error: string | null) => void
   logout: () => void
@@ -39,29 +41,43 @@ export const useAuthStore = create<AuthState>()(
       deviceToken: null,
 
       /**
-       * Updates the current user and onboarding status.
+       * Updates the current user only (without changing auth state).
+       * Use setAuthState() for complete auth state updates.
        * 
        * @param user - User profile data or null to clear
        */
       setUser: (user) => {
         set({
           user,
-          isOnboarded: !!user?.onboarded_at,
-          loading: false, // Clear loading when user is set
           error: null // Clear any errors
         })
       },
 
       /**
-       * Updates the Supabase session and authentication status.
+       * Updates the Supabase session only (without changing auth state).
+       * Use setAuthState() for complete auth state updates.
        * 
        * @param session - Supabase session object containing tokens
        */
       setSession: (session) => {
+        set({ session })
+      },
+
+      /**
+       * Sets complete authentication state atomically from session and LoginResponse.
+       * This prevents race conditions by updating both auth and onboarding status together.
+       * 
+       * @param session - Supabase session object or null
+       * @param loginResponse - API response containing onboarded status and user profile
+       */
+      setAuthState: (session, loginResponse) => {
         set({
           session,
           isAuthenticated: !!session,
-          loading: false // Clear loading when session is determined
+          isOnboarded: loginResponse?.onboarded || false,
+          user: loginResponse?.profile || null,
+          loading: false,
+          error: null
         })
       },
 
