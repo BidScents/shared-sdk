@@ -27,6 +27,19 @@ interface AuthState {
  * Manages user data, session state, loading states, and errors.
  * Supabase automatically handles token refresh in the background.
  * 
+ * ## Usage Guidelines:
+ * 
+ * **For complete auth operations (login, OAuth, session establishment):**
+ * - Use `setAuthState(session, loginResponse)` - sets all auth state atomically
+ * - Prevents race conditions by updating isAuthenticated and isOnboarded together
+ * 
+ * **For partial updates (profile edits, user data changes):**
+ * - Use `setUser(user)` - updates only user data without changing auth state
+ * - Use `setSession(session)` - updates only session without changing auth state
+ * 
+ * **For clearing all auth state:**
+ * - Use `logout()` - clears everything atomically
+ * 
  * @returns Auth store with user state, session, loading, and actions
  */
 export const useAuthStore = create<AuthState>()(
