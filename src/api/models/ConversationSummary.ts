@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ConversationType } from './ConversationType';
-import type { Message } from './Message';
+import type { MessageResData } from './MessageResData';
 import type { UserPreview } from './UserPreview';
 export type ConversationSummary = {
     /**
@@ -33,6 +33,6 @@ export type ConversationSummary = {
     /**
      * The last message in the conversation, if available
      */
-    last_message?: (Message | null);
+    last_message?: (MessageResData | null);
 };
 

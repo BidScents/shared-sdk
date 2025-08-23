@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ConversationResponse } from '../models/ConversationResponse';
-import type { Message } from '../models/Message';
 import type { MessageRequest } from '../models/MessageRequest';
 import type { MessageResData } from '../models/MessageResData';
 import type { MessagesSummary } from '../models/MessagesSummary';
@@ -118,14 +117,14 @@ export class MessageService {
      * @param conversationId
      * @param cursor Timestamp of last cursor in ISO format
      * @param limit
-     * @returns Message Successful Response
+     * @returns MessageResData Successful Response
      * @throws ApiError
      */
     public static getMessagesV1MessageMessagesConversationIdGet(
         conversationId: string,
         cursor: string,
         limit: number = 20,
-    ): CancelablePromise<Array<Message>> {
+    ): CancelablePromise<Array<MessageResData>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/message/messages/{conversation_id}',

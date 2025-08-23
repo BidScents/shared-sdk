@@ -151,6 +151,64 @@ export class ProfileService {
         });
     }
     /**
+     * Get User Followers
+     * Gets followers for a user
+     * @param userId
+     * @param cursor Timestamp for last follow
+     * @param limit
+     * @returns UserPreview Successful Response
+     * @throws ApiError
+     */
+    public static getUserFollowersV1ProfileUserIdFollowersGet(
+        userId: string,
+        cursor: string = '2025-08-23T15:40:46.539164+00:00',
+        limit: number = 20,
+    ): CancelablePromise<Array<UserPreview>> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/profile/{user_id}/followers',
+            path: {
+                'user_id': userId,
+            },
+            query: {
+                'cursor': cursor,
+                'limit': limit,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Get User Following
+     * Gets users that a specific user is following
+     * @param userId
+     * @param cursor Timestamp for last follow
+     * @param limit
+     * @returns UserPreview Successful Response
+     * @throws ApiError
+     */
+    public static getUserFollowingV1ProfileUserIdFollowingGet(
+        userId: string,
+        cursor: string = '2025-08-23T15:40:46.539799+00:00',
+        limit: number = 20,
+    ): CancelablePromise<Array<UserPreview>> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/profile/{user_id}/following',
+            path: {
+                'user_id': userId,
+            },
+            query: {
+                'cursor': cursor,
+                'limit': limit,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
      * Get User Listings
      * Get (more) listings for a user based on tab.
      * @param userId

@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ConversationType } from './ConversationType';
-import type { Message } from './Message';
+import type { MessageResData } from './MessageResData';
 import type { Participant } from './Participant';
 export type ConversationResponse = {
     /**
@@ -29,6 +29,6 @@ export type ConversationResponse = {
     /**
      * List of messages in the conversation
      */
-    messages: Array<Message>;
+    messages: Array<MessageResData>;
 };
 

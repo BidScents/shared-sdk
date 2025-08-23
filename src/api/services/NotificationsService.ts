@@ -83,7 +83,7 @@ export class NotificationsService {
      * @throws ApiError
      */
     public static getNotificationsV1NotificationsGet(
-        cursor: string = '2025-08-14T01:29:52.175036+00:00',
+        cursor: string = '2025-08-23T15:40:46.555589+00:00',
         limit: number = 20,
     ): CancelablePromise<NotificationResponse> {
         return __request(OpenAPI, {

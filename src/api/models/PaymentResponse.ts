@@ -3,13 +3,13 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Model for the response returned after a boost request
+ * Model for the response returned after a payment request
  */
-export type BoostResponse = {
+export type PaymentResponse = {
     /**
-     * The client secret for the payment intent.
+     * The client secret for the payment intent if the user has to pay
      */
-    client_secret: string;
+    client_secret?: (string | null);
     /**
      * The amount to be charged.
      */
@@ -18,9 +18,5 @@ export type BoostResponse = {
      * The currency of the payment.
      */
     currency: string;
-    /**
-     * The boost credits available for the user.
-     */
-    boost_credits: Record<string, number>;
 };
 

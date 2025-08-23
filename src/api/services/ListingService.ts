@@ -226,4 +226,28 @@ export class ListingService {
             },
         });
     }
+    /**
+     * Get Sellers You Follow Listings
+     * Get all listings from sellers that the user follows.
+     * @param cursor Timestamp of last listing in ISO format
+     * @param limit
+     * @returns ListingCard Successful Response
+     * @throws ApiError
+     */
+    public static getSellersYouFollowListingsV1ListingSellersYouFollowGet(
+        cursor?: string,
+        limit: number = 10,
+    ): CancelablePromise<Array<ListingCard>> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/listing/sellers-you-follow',
+            query: {
+                'cursor': cursor,
+                'limit': limit,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
 }
