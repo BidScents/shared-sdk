@@ -120,14 +120,14 @@ export class MessageService {
      * @returns MessageResData Successful Response
      * @throws ApiError
      */
-    public static getMessagesV1MessageMessagesConversationIdGet(
+    public static getMessagesV1MessageConversationIdMessagesGet(
         conversationId: string,
         cursor: string,
         limit: number = 20,
     ): CancelablePromise<Array<MessageResData>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/v1/message/messages/{conversation_id}',
+            url: '/v1/message/{conversation_id}/messages',
             path: {
                 'conversation_id': conversationId,
             },

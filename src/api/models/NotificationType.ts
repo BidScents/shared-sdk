@@ -15,5 +15,4 @@ export enum NotificationType {
     PAYMENT_MADE = 'payment_made',
     RECEIPT_CONFIRMED = 'receipt_confirmed',
     MESSAGE = 'message',
-    OVERRIDE = 'override',
 }

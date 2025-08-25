@@ -4,7 +4,9 @@
 /* eslint-disable */
 import type { FileContent } from './FileContent';
 import type { MessageType } from './MessageType';
-import type { RichInitiateActionContent } from './RichInitiateActionContent';
+import type { RichConfirmReceiptActionContent } from './RichConfirmReceiptActionContent';
+import type { RichInitiateTransactionActionContent } from './RichInitiateTransactionActionContent';
+import type { RichSubmitReviewActionContent } from './RichSubmitReviewActionContent';
 import type { RichTextContent } from './RichTextContent';
 import type { UserPreview } from './UserPreview';
 export type MessageResData = {
@@ -23,7 +25,7 @@ export type MessageResData = {
     /**
      * Content of the message
      */
-    content: (RichTextContent | FileContent | RichInitiateActionContent);
+    content: (RichTextContent | FileContent | RichInitiateTransactionActionContent | RichConfirmReceiptActionContent | RichSubmitReviewActionContent);
     /**
      * Information about the user who sent the message
      */

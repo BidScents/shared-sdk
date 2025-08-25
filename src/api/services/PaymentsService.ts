@@ -5,6 +5,7 @@
 import type { BoostRequest } from '../models/BoostRequest';
 import type { MessageResData } from '../models/MessageResData';
 import type { PaymentResponse } from '../models/PaymentResponse';
+import type { ReviewRequest } from '../models/ReviewRequest';
 import type { SubscriptionRequest } from '../models/SubscriptionRequest';
 import type { TransactionRequest } from '../models/TransactionRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -172,6 +173,73 @@ export class PaymentsService {
             path: {
                 'message_id': messageId,
             },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Cancel Transaction
+     * Cancels a transaction after it has been initiated
+     * @param messageId
+     * @returns void
+     * @throws ApiError
+     */
+    public static cancelTransactionV1PaymentsMessageIdCancelDelete(
+        messageId: string,
+    ): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'DELETE',
+            url: '/v1/payments/{message_id}/cancel',
+            path: {
+                'message_id': messageId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Confirm Receipt
+     * Releases payment to seller and updates transaction status
+     * @param messageId
+     * @returns void
+     * @throws ApiError
+     */
+    public static confirmReceiptV1PaymentsMessageIdConfirmReceiptPost(
+        messageId: string,
+    ): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/v1/payments/{message_id}/confirm-receipt',
+            path: {
+                'message_id': messageId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Submit Review
+     * Submits a review for a transaction
+     * @param messageId
+     * @param requestBody
+     * @returns void
+     * @throws ApiError
+     */
+    public static submitReviewV1PaymentsMessageIdSubmitReviewPost(
+        messageId: string,
+        requestBody: ReviewRequest,
+    ): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/v1/payments/{message_id}/submit-review',
+            path: {
+                'message_id': messageId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 422: `Validation Error`,
             },

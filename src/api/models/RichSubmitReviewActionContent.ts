@@ -4,23 +4,15 @@
 /* eslint-disable */
 import type { ListingPreview } from './ListingPreview';
 import type { MessageActionType } from './MessageActionType';
-export type RichInitiateActionContent = {
+export type RichSubmitReviewActionContent = {
     /**
      * Type of the action
      */
-    action_type: MessageActionType;
+    action_type?: MessageActionType;
     /**
      * Listing associated with the action
      */
     listing?: (ListingPreview | null);
-    /**
-     * Unit price of the listing
-     */
-    unit_price: number;
-    /**
-     * Quantity of the listing
-     */
-    quantity: number;
     /**
      * ID of the buyer
      */
