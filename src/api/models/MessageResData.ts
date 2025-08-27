@@ -25,7 +25,7 @@ export type MessageResData = {
     /**
      * Content of the message
      */
-    content: (RichTextContent | FileContent | RichInitiateTransactionActionContent | RichConfirmReceiptActionContent | RichSubmitReviewActionContent);
+    content: (RichTextContent | FileContent | RichInitiateTransactionActionContent | RichConfirmReceiptActionContent | RichSubmitReviewActionContent | null);
     /**
      * Information about the user who sent the message
      */

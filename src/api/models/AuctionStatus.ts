@@ -5,6 +5,5 @@
 export enum AuctionStatus {
     ACTIVE = 'ACTIVE',
     PENDING = 'PENDING',
-    RESERVE_NOT_MET = 'RESERVE_NOT_MET',
-    COMPLETE = 'COMPLETE',
+    COMPLETED = 'COMPLETED',
 }

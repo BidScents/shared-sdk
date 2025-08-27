@@ -66,10 +66,6 @@ export type CreateListingRequest = {
      */
     starting_price?: (number | null);
     /**
-     * Reserve price for auction listings
-     */
-    reserve_price?: (number | null);
-    /**
      * Buy now price for auction listings
      */
     buy_now_price?: (number | null);

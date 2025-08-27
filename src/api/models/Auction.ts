@@ -7,7 +7,6 @@ import type { Bid } from './Bid';
 export type Auction = {
     listing_id: string;
     starting_price: number;
-    reserve_price?: (number | null);
     buy_now_price?: (number | null);
     bid_increment?: number;
     bids?: Array<Bid>;
