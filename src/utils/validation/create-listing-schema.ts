@@ -43,7 +43,6 @@ export const createListingSchema = z
 
     // Always optional fields
     batch_code: z.string().max(50).optional(),
-    reserve_price: z.number().positive().optional(),
     buy_now_price: z.number().positive().optional(),
   })
   .refine(
@@ -126,32 +125,15 @@ export const createListingSchema = z
   )
   .refine(
     (data) => {
-      // Reserve price must be higher than starting price for auctions
-      if (
-        data.type === ListingType.AUCTION &&
-        data.starting_price &&
-        data.reserve_price
-      ) {
-        return data.reserve_price >= data.starting_price;
-      }
-      return true;
-    },
-    {
-      message: "Reserve price must be equal to or higher than starting price",
-      path: ["reserve_price"],
-    }
-  )
-  .refine(
-    (data) => {
-      // Buy now price must be higher than reserve price (or starting price if no reserve)
+      // Buy now price must be higher than starting price
       if (data.type === ListingType.AUCTION && data.buy_now_price) {
-        const minimumPrice = data.reserve_price || data.starting_price || 0;
+        const minimumPrice = data.starting_price || 0;
         return data.buy_now_price > minimumPrice;
       }
       return true;
     },
     {
-      message: "Buy now price must be higher than reserve/starting price",
+      message: "Buy now price must be higher than starting price",
       path: ["buy_now_price"],
     }
   );
