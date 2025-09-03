@@ -6,4 +6,6 @@ export enum AuctionStatus {
     ACTIVE = 'ACTIVE',
     PENDING = 'PENDING',
     COMPLETED = 'COMPLETED',
+    FROZEN = 'FROZEN',
+    DELETED = 'DELETED',
 }

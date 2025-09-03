@@ -3,7 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateListingRequest } from '../models/CreateListingRequest';
+import type { DashboardAuctionResponse } from '../models/DashboardAuctionResponse';
 import type { ListingResponse } from '../models/ListingResponse';
+import type { MessageResData } from '../models/MessageResData';
+import type { SearchResponse } from '../models/SearchResponse';
 import type { UpdateListingRequest } from '../models/UpdateListingRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -75,18 +78,96 @@ export class DashboardService {
     /**
      * Get User Dashboard
      * Get the dashboard data for a user.
-     * @param userId
      * @returns any Successful Response
      * @throws ApiError
      */
-    public static getUserDashboardV1DashboardUserIdGet(
-        userId: string,
-    ): CancelablePromise<any> {
+    public static getUserDashboardV1DashboardGet(): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/v1/dashboard/{user_id}',
+            url: '/v1/dashboard',
+        });
+    }
+    /**
+     * Get Pending Auctions
+     * Get a user's auction listings
+     * @param page
+     * @param perPage
+     * @returns SearchResponse Successful Response
+     * @throws ApiError
+     */
+    public static getPendingAuctionsV1DashboardAuctionsGet(
+        page: number = 1,
+        perPage: number = 10,
+    ): CancelablePromise<SearchResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/dashboard/auctions',
+            query: {
+                'page': page,
+                'per_page': perPage,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Get Settlement Details
+     * Gets the top bids for an auction
+     * @param listingId
+     * @returns DashboardAuctionResponse Successful Response
+     * @throws ApiError
+     */
+    public static getSettlementDetailsV1DashboardAuctionsListingIdGet(
+        listingId: string,
+    ): CancelablePromise<DashboardAuctionResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/dashboard/auctions/{listing_id}',
             path: {
-                'user_id': userId,
+                'listing_id': listingId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Settle Auction Transaction
+     * Sends a transaction message for the auction to the highest bidder
+     * @param listingId
+     * @returns MessageResData Successful Response
+     * @throws ApiError
+     */
+    public static settleAuctionTransactionV1DashboardAuctionsListingIdTransactionPost(
+        listingId: string,
+    ): CancelablePromise<MessageResData> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/v1/dashboard/auctions/{listing_id}/transaction',
+            path: {
+                'listing_id': listingId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Mark No Response
+     * Marks the highest bidder as no response
+     * @param listingId
+     * @returns DashboardAuctionResponse Successful Response
+     * @throws ApiError
+     */
+    public static markNoResponseV1DashboardAuctionsListingIdNoResponsePost(
+        listingId: string,
+    ): CancelablePromise<DashboardAuctionResponse> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/v1/dashboard/auctions/{listing_id}/no-response',
+            path: {
+                'listing_id': listingId,
             },
             errors: {
                 422: `Validation Error`,

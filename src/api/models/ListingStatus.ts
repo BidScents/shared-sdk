@@ -8,4 +8,5 @@ export enum ListingStatus {
     FROZEN = 'FROZEN',
     SOLD = 'SOLD',
     AUCTION_PENDING = 'AUCTION_PENDING',
+    DELETED = 'DELETED',
 }

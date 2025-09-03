@@ -28,6 +28,7 @@ export type { ConversationResponse } from './models/ConversationResponse';
 export type { ConversationSummary } from './models/ConversationSummary';
 export { ConversationType } from './models/ConversationType';
 export type { CreateListingRequest } from './models/CreateListingRequest';
+export type { DashboardAuctionResponse } from './models/DashboardAuctionResponse';
 export type { EditPreferencesRequest } from './models/EditPreferencesRequest';
 export type { EditProfileRequest } from './models/EditProfileRequest';
 export type { ErrorResData } from './models/ErrorResData';

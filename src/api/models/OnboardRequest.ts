@@ -27,5 +27,9 @@ export type OnboardRequest = {
      * A short biography of the user.
      */
     bio?: (string | null);
+    /**
+     * The user's location.
+     */
+    location?: (string | null);
 };
 

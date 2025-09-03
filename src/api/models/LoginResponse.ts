@@ -21,5 +21,13 @@ export type LoginResponse = {
      * The user's payment details including payment method and subscription status.
      */
     payment_details?: (PaymentData | null);
+    /**
+     * The count of unread messages for the user.
+     */
+    unread_messages: number;
+    /**
+     * The count of unseen notifications for the user.
+     */
+    unseen_notifications: number;
 };
 

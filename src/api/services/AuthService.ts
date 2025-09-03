@@ -63,4 +63,16 @@ export class AuthService {
             },
         });
     }
+    /**
+     * Delete Account
+     * Delete a user account.
+     * @returns void
+     * @throws ApiError
+     */
+    public static deleteAccountV1AuthDeleteAccountDelete(): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'DELETE',
+            url: '/v1/auth/delete-account',
+        });
+    }
 }
