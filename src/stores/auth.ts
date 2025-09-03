@@ -3,6 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { User } from '../api/models/User'
 import type { LoginResponse } from '../api/models/LoginResponse'
+import type { PaymentData } from '../api/models/PaymentData'
 
 interface AuthState {
   user: User | null
@@ -12,6 +13,10 @@ interface AuthState {
   loading: boolean
   error: string | null
   deviceToken: string | null
+  favorites: string[]
+  paymentDetails: PaymentData | null
+  unreadMessages: number
+  unseenNotifications: number
   setUser: (user: User | null) => void
   setSession: (session: any | null) => void
   setAuthState: (session: any | null, loginResponse: LoginResponse | null) => void
@@ -19,6 +24,9 @@ interface AuthState {
   setError: (error: string | null) => void
   logout: () => void
   setDeviceToken: (deviceToken: string | null) => void
+  setFavorites: (favorites: string[]) => void
+  setPaymentDetails: (paymentDetails: PaymentData | null) => void
+  setMessageCounts: (unreadMessages: number, unseenNotifications: number) => void
 }
 
 /**
@@ -52,6 +60,10 @@ export const useAuthStore = create<AuthState>()(
       loading: true,
       error: null,
       deviceToken: null,
+      favorites: [],
+      paymentDetails: null,
+      unreadMessages: 0,
+      unseenNotifications: 0,
 
       /**
        * Updates the current user only (without changing auth state).
@@ -89,6 +101,10 @@ export const useAuthStore = create<AuthState>()(
           isAuthenticated: !!session,
           isOnboarded: loginResponse?.onboarded || false,
           user: loginResponse?.profile || null,
+          favorites: loginResponse?.favorites || [],
+          paymentDetails: loginResponse?.payment_details || null,
+          unreadMessages: loginResponse?.unread_messages || 0,
+          unseenNotifications: loginResponse?.unseen_notifications || 0,
           loading: false,
           error: null
         })
@@ -122,7 +138,11 @@ export const useAuthStore = create<AuthState>()(
           isAuthenticated: false,
           isOnboarded: false,
           loading: false,
-          error: null
+          error: null,
+          favorites: [],
+          paymentDetails: null,
+          unreadMessages: 0,
+          unseenNotifications: 0
         })
       },
 
@@ -133,7 +153,36 @@ export const useAuthStore = create<AuthState>()(
        */
       setDeviceToken: (deviceToken) => {
         set({ deviceToken })
+      },
+
+      /**
+       * Updates the user's favorite listings.
+       * 
+       * @param favorites - Array of listing IDs
+       */
+      setFavorites: (favorites) => {
+        set({ favorites })
+      },
+
+      /**
+       * Updates the user's payment details.
+       * 
+       * @param paymentDetails - Payment data or null to clear
+       */
+      setPaymentDetails: (paymentDetails) => {
+        set({ paymentDetails })
+      },
+
+      /**
+       * Updates message and notification counts.
+       * 
+       * @param unreadMessages - Number of unread messages
+       * @param unseenNotifications - Number of unseen notifications
+       */
+      setMessageCounts: (unreadMessages, unseenNotifications) => {
+        set({ unreadMessages, unseenNotifications })
       }
+
     }),
     {
       name: 'auth-storage',
@@ -143,7 +192,11 @@ export const useAuthStore = create<AuthState>()(
         session: state.session,
         isAuthenticated: state.isAuthenticated,
         isOnboarded: state.isOnboarded,
-        deviceToken: state.deviceToken
+        deviceToken: state.deviceToken,
+        favorites: state.favorites,
+        paymentDetails: state.paymentDetails,
+        unreadMessages: state.unreadMessages,
+        unseenNotifications: state.unseenNotifications,
         // Don't persist loading or error states
       })
     }
