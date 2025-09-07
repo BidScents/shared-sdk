@@ -88,6 +88,7 @@ export type { RichSubmitReviewActionContent } from './models/RichSubmitReviewAct
 export type { RichTextContent } from './models/RichTextContent';
 export type { SearchRequest } from './models/SearchRequest';
 export type { SearchResponse } from './models/SearchResponse';
+export type { SellersYouFollowResponse } from './models/SellersYouFollowResponse';
 export type { SortParameter } from './models/SortParameter';
 export type { SubscriptionRequest } from './models/SubscriptionRequest';
 export type { TextContent } from './models/TextContent';

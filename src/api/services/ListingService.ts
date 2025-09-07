@@ -9,6 +9,7 @@ import type { ListingCard } from '../models/ListingCard';
 import type { ListingDetailsResponse } from '../models/ListingDetailsResponse';
 import type { SearchRequest } from '../models/SearchRequest';
 import type { SearchResponse } from '../models/SearchResponse';
+import type { SellersYouFollowResponse } from '../models/SellersYouFollowResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -231,13 +232,13 @@ export class ListingService {
      * Get all listings from sellers that the user follows.
      * @param cursor Timestamp of last listing in ISO format
      * @param limit
-     * @returns ListingCard Successful Response
+     * @returns SellersYouFollowResponse Successful Response
      * @throws ApiError
      */
     public static getSellersYouFollowListingsV1ListingSellersYouFollowGet(
         cursor?: string,
         limit: number = 10,
-    ): CancelablePromise<Array<ListingCard>> {
+    ): CancelablePromise<SellersYouFollowResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/listing/sellers-you-follow',
