@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { EditProfileRequest } from '../models/EditProfileRequest';
+import type { FollowerFollowingResponse } from '../models/FollowerFollowingResponse';
 import type { ListingSearchRequest } from '../models/ListingSearchRequest';
 import type { ListingTab } from '../models/ListingTab';
 import type { ProfileResponse } from '../models/ProfileResponse';
@@ -156,14 +157,14 @@ export class ProfileService {
      * @param userId
      * @param cursor Timestamp for last follow
      * @param limit
-     * @returns UserPreview Successful Response
+     * @returns FollowerFollowingResponse Successful Response
      * @throws ApiError
      */
     public static getUserFollowersV1ProfileUserIdFollowersGet(
         userId: string,
-        cursor: string = '2025-09-02T17:49:46.671075+00:00',
+        cursor: string = '2025-09-07T13:58:57.532771+00:00',
         limit: number = 20,
-    ): CancelablePromise<Array<UserPreview>> {
+    ): CancelablePromise<FollowerFollowingResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/profile/{user_id}/followers',
@@ -185,14 +186,14 @@ export class ProfileService {
      * @param userId
      * @param cursor Timestamp for last follow
      * @param limit
-     * @returns UserPreview Successful Response
+     * @returns FollowerFollowingResponse Successful Response
      * @throws ApiError
      */
     public static getUserFollowingV1ProfileUserIdFollowingGet(
         userId: string,
-        cursor: string = '2025-09-02T17:49:46.671654+00:00',
+        cursor: string = '2025-09-07T13:58:57.533199+00:00',
         limit: number = 20,
-    ): CancelablePromise<Array<UserPreview>> {
+    ): CancelablePromise<FollowerFollowingResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/profile/{user_id}/following',
