@@ -24,6 +24,10 @@ export type PaymentData = {
      */
     subscription_id?: (string | null);
     /**
+     * Indicates whether the user's subscription is currently active.
+     */
+    subscription_is_active: boolean;
+    /**
      * A mapping of boost types to the number of credits the user has for each type.
      */
     boost_credits: Record<string, number>;

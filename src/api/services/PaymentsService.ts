@@ -5,6 +5,7 @@
 import type { BoostRequest } from '../models/BoostRequest';
 import type { MessageResData } from '../models/MessageResData';
 import type { PaymentResponse } from '../models/PaymentResponse';
+import type { ProductResponse } from '../models/ProductResponse';
 import type { ReviewRequest } from '../models/ReviewRequest';
 import type { SubscriptionRequest } from '../models/SubscriptionRequest';
 import type { TransactionRequest } from '../models/TransactionRequest';
@@ -34,6 +35,18 @@ export class PaymentsService {
         });
     }
     /**
+     * Get Payment Method
+     * Gets the payment method details for a user
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static getPaymentMethodV1PaymentsPaymentMethodGet(): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/payments/payment-method',
+        });
+    }
+    /**
      * Setup Payment Method
      * Sets up a payment method for a user
      * @returns string Successful Response
@@ -43,6 +56,38 @@ export class PaymentsService {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/v1/payments/payment-method',
+        });
+    }
+    /**
+     * Delete Payment Method
+     * Deletes the payment method for a user
+     * @returns void
+     * @throws ApiError
+     */
+    public static deletePaymentMethodV1PaymentsPaymentMethodDelete(): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'DELETE',
+            url: '/v1/payments/payment-method',
+        });
+    }
+    /**
+     * Update Payment Method
+     * Updates the payment method for a user
+     * @param requestBody
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static updatePaymentMethodV1PaymentsPaymentMethodPatch(
+        requestBody: string,
+    ): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'PATCH',
+            url: '/v1/payments/payment-method',
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                422: `Validation Error`,
+            },
         });
     }
     /**
@@ -79,38 +124,13 @@ export class PaymentsService {
     }
     /**
      * List Products
-     * @returns any Successful Response
+     * @returns ProductResponse Successful Response
      * @throws ApiError
      */
-    public static listProductsV1PaymentsProductsGet(): CancelablePromise<any> {
+    public static listProductsV1PaymentsProductsGet(): CancelablePromise<ProductResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/payments/products',
-        });
-    }
-    /**
-     * Reset Pricing
-     * Resets the products dict to reflect changes in stripe
-     * @returns any Successful Response
-     * @throws ApiError
-     */
-    public static resetPricingV1PaymentsResetPost(): CancelablePromise<any> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/v1/payments/reset',
-        });
-    }
-    /**
-     * Stripe Webhook
-     * Handle Stripe webhook events.
-     * This endpoint is used to process events sent by Stripe, such as payment success or failure.
-     * @returns void
-     * @throws ApiError
-     */
-    public static stripeWebhookV1PaymentsWebhookPost(): CancelablePromise<void> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/v1/payments/webhook',
         });
     }
     /**
