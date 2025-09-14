@@ -73,6 +73,7 @@ export type { PaginationDetails } from './models/PaginationDetails';
 export type { Participant } from './models/Participant';
 export type { Pass } from './models/Pass';
 export { PassType } from './models/PassType';
+export type { PaymentContent } from './models/PaymentContent';
 export type { PaymentData } from './models/PaymentData';
 export type { PaymentResponse } from './models/PaymentResponse';
 export type { PreferencesResponse } from './models/PreferencesResponse';

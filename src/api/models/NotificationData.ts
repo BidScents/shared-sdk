@@ -11,6 +11,7 @@ import type { MessageContent } from './MessageContent';
 import type { NotificationPriority } from './NotificationPriority';
 import type { NotificationType } from './NotificationType';
 import type { OutbidContent } from './OutbidContent';
+import type { PaymentContent } from './PaymentContent';
 export type NotificationData = {
     /**
      * The unique identifier of the notification
@@ -31,7 +32,7 @@ export type NotificationData = {
     /**
      * The data associated with the notification
      */
-    content: (OutbidContent | MessageContent | FollowerContent | ListingContent | AuctionExpiryContent | CommentContent | FollowedSellerListingContent);
+    content: (OutbidContent | MessageContent | FollowerContent | ListingContent | AuctionExpiryContent | CommentContent | FollowedSellerListingContent | PaymentContent);
     /**
      * Whether the notification has been seen
      */
