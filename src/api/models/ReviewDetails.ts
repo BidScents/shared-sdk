@@ -13,9 +13,9 @@ export type ReviewDetails = {
      */
     listing_id?: (string | null);
     /**
-     * Content of the review
+     * Content of the review. Can be null if user submitted review without comment
      */
-    comment: string;
+    comment?: (string | null);
     /**
      * Rating given in the review, from 0 to 5
      */
