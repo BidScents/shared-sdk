@@ -27,9 +27,9 @@ export type MessageResData = {
      */
     content: (RichTextContent | FileContent | RichInitiateTransactionActionContent | RichConfirmReceiptActionContent | RichSubmitReviewActionContent | null);
     /**
-     * Information about the user who sent the message
+     * Information about the user who sent the message if available
      */
-    sender: UserPreview;
+    sender?: (UserPreview | null);
     /**
      * Timestamp of when the message was sent, in ISO 8601 format
      */

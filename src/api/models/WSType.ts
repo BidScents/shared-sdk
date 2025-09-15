@@ -4,6 +4,7 @@
 /* eslint-disable */
 export enum WSType {
     MESSAGE = 'MESSAGE',
+    UPDATE_MESSAGE = 'UPDATE_MESSAGE',
     TYPING = 'TYPING',
     UPDATE_LAST_READ = 'UPDATE_LAST_READ',
     ERROR = 'ERROR',
