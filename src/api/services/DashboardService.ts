@@ -9,6 +9,7 @@ import type { FeaturedListingsResponse } from '../models/FeaturedListingsRespons
 import type { ListingResponse } from '../models/ListingResponse';
 import type { MessageResData } from '../models/MessageResData';
 import type { SearchResponse } from '../models/SearchResponse';
+import type { TransactionResponse } from '../models/TransactionResponse';
 import type { UpdateListingRequest } from '../models/UpdateListingRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -201,23 +202,47 @@ export class DashboardService {
         });
     }
     /**
-     * Get Boosted Listings
-     * Get boosted listings for user
+     * Get Featured Listings
+     * Get featured listings for user
      * @param perPage
      * @param page
      * @returns FeaturedListingsResponse Successful Response
      * @throws ApiError
      */
-    public static getBoostedListingsV1DashboardListingsBoostedGet(
+    public static getFeaturedListingsV1DashboardListingsFeaturedGet(
         perPage: number = 20,
         page: number = 1,
     ): CancelablePromise<FeaturedListingsResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/v1/dashboard/listings/boosted',
+            url: '/v1/dashboard/listings/featured',
             query: {
                 'per_page': perPage,
                 'page': page,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Get User Transactions
+     * Get user transactions
+     * @param cursor Timestamp of last notification in ISO format
+     * @param limit
+     * @returns TransactionResponse Successful Response
+     * @throws ApiError
+     */
+    public static getUserTransactionsV1DashboardTransactionsGet(
+        cursor: string = '2025-09-22T16:07:25.442712+00:00',
+        limit: number = 20,
+    ): CancelablePromise<TransactionResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/dashboard/transactions',
+            query: {
+                'cursor': cursor,
+                'limit': limit,
             },
             errors: {
                 422: `Validation Error`,

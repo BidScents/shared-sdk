@@ -162,7 +162,7 @@ export class ProfileService {
      */
     public static getUserFollowersV1ProfileUserIdFollowersGet(
         userId: string,
-        cursor: string = '2025-09-07T13:58:57.532771+00:00',
+        cursor: string = '2025-09-22T16:07:25.423788+00:00',
         limit: number = 20,
     ): CancelablePromise<FollowerFollowingResponse> {
         return __request(OpenAPI, {
@@ -191,7 +191,7 @@ export class ProfileService {
      */
     public static getUserFollowingV1ProfileUserIdFollowingGet(
         userId: string,
-        cursor: string = '2025-09-07T13:58:57.533199+00:00',
+        cursor: string = '2025-09-22T16:07:25.424227+00:00',
         limit: number = 20,
     ): CancelablePromise<FollowerFollowingResponse> {
         return __request(OpenAPI, {
