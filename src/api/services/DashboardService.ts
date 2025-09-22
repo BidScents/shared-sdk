@@ -2,8 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ActiveListingsResponse } from '../models/ActiveListingsResponse';
 import type { CreateListingRequest } from '../models/CreateListingRequest';
 import type { DashboardAuctionResponse } from '../models/DashboardAuctionResponse';
+import type { FeaturedListingsResponse } from '../models/FeaturedListingsResponse';
 import type { ListingResponse } from '../models/ListingResponse';
 import type { MessageResData } from '../models/MessageResData';
 import type { SearchResponse } from '../models/SearchResponse';
@@ -168,6 +170,54 @@ export class DashboardService {
             url: '/v1/dashboard/auctions/{listing_id}/no-response',
             path: {
                 'listing_id': listingId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Get Active Listings
+     * Get active listing for crud
+     * @param perPage
+     * @param page
+     * @returns ActiveListingsResponse Successful Response
+     * @throws ApiError
+     */
+    public static getActiveListingsV1DashboardListingsActiveGet(
+        perPage: number = 20,
+        page: number = 1,
+    ): CancelablePromise<ActiveListingsResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/dashboard/listings/active',
+            query: {
+                'per_page': perPage,
+                'page': page,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Get Boosted Listings
+     * Get boosted listings for user
+     * @param perPage
+     * @param page
+     * @returns FeaturedListingsResponse Successful Response
+     * @throws ApiError
+     */
+    public static getBoostedListingsV1DashboardListingsBoostedGet(
+        perPage: number = 20,
+        page: number = 1,
+    ): CancelablePromise<FeaturedListingsResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/v1/dashboard/listings/boosted',
+            query: {
+                'per_page': perPage,
+                'page': page,
             },
             errors: {
                 422: `Validation Error`,
