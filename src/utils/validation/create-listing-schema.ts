@@ -32,7 +32,7 @@ export const createListingSchema = z
     box_condition: z.nativeEnum(ListingBoxCondition),
 
     // Required array (but can be empty initially, populated after upload)
-    image_urls: z.array(z.string().min(0)),
+    image_urls: z.array(z.string()).min(0).max(10),
 
     // Conditionally required fields
     price: z.number().positive().max(10000).optional(),
