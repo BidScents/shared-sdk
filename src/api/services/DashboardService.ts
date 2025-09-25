@@ -79,20 +79,20 @@ export class DashboardService {
         });
     }
     /**
-     * Get Pending Auctions
-     * Get a user's auction listings
+     * Get Pending Listings
+     * Get a user's pending listings
      * @param page
      * @param perPage
      * @returns SearchResponse Successful Response
      * @throws ApiError
      */
-    public static getPendingAuctionsV1DashboardAuctionsGet(
+    public static getPendingListingsV1DashboardListingsPendingGet(
         page: number = 1,
         perPage: number = 10,
     ): CancelablePromise<SearchResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/v1/dashboard/auctions',
+            url: '/v1/dashboard/listings/pending',
             query: {
                 'page': page,
                 'per_page': perPage,
@@ -222,7 +222,7 @@ export class DashboardService {
      * @throws ApiError
      */
     public static getUserTransactionsV1DashboardTransactionsGet(
-        cursor: string = '2025-09-24T22:05:09.834009+00:00',
+        cursor: string = '2025-09-25T20:09:50.349711+00:00',
         limit: number = 20,
     ): CancelablePromise<TransactionResponse> {
         return __request(OpenAPI, {
