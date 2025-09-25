@@ -79,18 +79,6 @@ export class DashboardService {
         });
     }
     /**
-     * Get User Dashboard
-     * Get the dashboard data for a user.
-     * @returns any Successful Response
-     * @throws ApiError
-     */
-    public static getUserDashboardV1DashboardGet(): CancelablePromise<any> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/v1/dashboard',
-        });
-    }
-    /**
      * Get Pending Auctions
      * Get a user's auction listings
      * @param page
@@ -234,7 +222,7 @@ export class DashboardService {
      * @throws ApiError
      */
     public static getUserTransactionsV1DashboardTransactionsGet(
-        cursor: string = '2025-09-22T16:07:25.442712+00:00',
+        cursor: string = '2025-09-24T22:05:09.834009+00:00',
         limit: number = 20,
     ): CancelablePromise<TransactionResponse> {
         return __request(OpenAPI, {
