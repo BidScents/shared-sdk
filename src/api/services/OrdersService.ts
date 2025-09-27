@@ -18,7 +18,7 @@ export class OrdersService {
      */
     public static getOrdersV1OrdersStatusGet(
         status: string,
-        cursor: string = '2025-09-24T22:05:09.855458+00:00',
+        cursor: string = '2025-09-27T11:47:42.615279+00:00',
         limit: number = 20,
     ): CancelablePromise<OrderResponse> {
         return __request(OpenAPI, {

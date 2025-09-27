@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ActiveListingsResponse } from '../models/ActiveListingsResponse';
 import type { CreateListingRequest } from '../models/CreateListingRequest';
 import type { DashboardAuctionResponse } from '../models/DashboardAuctionResponse';
 import type { FeaturedListingsResponse } from '../models/FeaturedListingsResponse';
@@ -170,13 +169,13 @@ export class DashboardService {
      * Get active listing for crud
      * @param perPage
      * @param page
-     * @returns ActiveListingsResponse Successful Response
+     * @returns SearchResponse Successful Response
      * @throws ApiError
      */
     public static getActiveListingsV1DashboardListingsActiveGet(
         perPage: number = 20,
         page: number = 1,
-    ): CancelablePromise<ActiveListingsResponse> {
+    ): CancelablePromise<SearchResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/dashboard/listings/active',
@@ -222,7 +221,7 @@ export class DashboardService {
      * @throws ApiError
      */
     public static getUserTransactionsV1DashboardTransactionsGet(
-        cursor: string = '2025-09-26T17:25:15.200742+00:00',
+        cursor: string = '2025-09-27T11:47:42.596663+00:00',
         limit: number = 20,
     ): CancelablePromise<TransactionResponse> {
         return __request(OpenAPI, {

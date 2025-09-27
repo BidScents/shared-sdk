@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CheckUniqueUsernameResponse } from '../models/CheckUniqueUsernameResponse';
 import type { LoginResponse } from '../models/LoginResponse';
 import type { OnboardRequest } from '../models/OnboardRequest';
 import type { OnboardResponse } from '../models/OnboardResponse';
@@ -37,27 +36,6 @@ export class AuthService {
             url: '/v1/auth/onboard',
             body: requestBody,
             mediaType: 'application/json',
-            errors: {
-                422: `Validation Error`,
-            },
-        });
-    }
-    /**
-     * Check Unique Username
-     * Check if a username is unique.
-     * @param username Username to check for uniqueness
-     * @returns CheckUniqueUsernameResponse Successful Response
-     * @throws ApiError
-     */
-    public static checkUniqueUsernameV1AuthCheckUsernameGet(
-        username: string,
-    ): CancelablePromise<CheckUniqueUsernameResponse> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/v1/auth/check-username',
-            query: {
-                'username': username,
-            },
             errors: {
                 422: `Validation Error`,
             },
