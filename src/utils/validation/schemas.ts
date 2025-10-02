@@ -70,6 +70,12 @@ export const onboardingSchema = z.object({
     .max(50, 'Last name must be less than 50 characters')
     .trim(),
   
+  location: z
+    .string()
+    .max(100, 'Location must be less than 100 characters')
+    .trim()
+    .optional(),
+  
   profile_image_url: z
     .string()
     .optional(),

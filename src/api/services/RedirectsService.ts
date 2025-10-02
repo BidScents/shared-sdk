@@ -55,20 +55,20 @@ export class RedirectsService {
         });
     }
     /**
-     * Redirect Reset Password
+     * Redirect Forgot Password
      * Smart redirect for password reset
      * @param token
      * @param source
      * @returns any Successful Response
      * @throws ApiError
      */
-    public static redirectResetPasswordV1LinkResetPasswordGet(
+    public static redirectForgotPasswordV1LinkForgotPasswordGet(
         token?: (string | null),
         source?: (string | null),
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/v1/link/reset-password',
+            url: '/v1/link/forgot-password',
             query: {
                 'token': token,
                 'source': source,
