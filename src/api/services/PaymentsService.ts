@@ -18,17 +18,43 @@ export class PaymentsService {
      * Create a payment intent for boosting listings.
      * This endpoint processes the boost request and returns a payment intent client secret.
      * @param requestBody
+     * @param creditsOnly If true, if insufficient boost credits, will return error instead of creating payment intent
      * @returns PaymentResponse Successful Response
      * @throws ApiError
      */
     public static boostListingV1PaymentsBoostPost(
         requestBody: BoostRequest,
+        creditsOnly: boolean = false,
     ): CancelablePromise<PaymentResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/v1/payments/boost',
+            query: {
+                'credits_only': creditsOnly,
+            },
             body: requestBody,
             mediaType: 'application/json',
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Cancel Request
+     * Cancels a request's payment intent
+     * @param requestId
+     * @returns void
+     * @throws ApiError
+     */
+    public static cancelRequestV1PaymentsBoostDelete(
+        requestId: string,
+    ): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'DELETE',
+            url: '/v1/payments/boost',
+            query: {
+                'request_id': requestId,
+            },
             errors: {
                 422: `Validation Error`,
             },
@@ -131,6 +157,30 @@ export class PaymentsService {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/v1/payments/products',
+        });
+    }
+    /**
+     * Claim Boost
+     * Claims a boost after purchasing boost tokens via RevenueCat
+     * @param requestId ID of the boost request to claim
+     * @param listingId ID of the listing to boost
+     * @returns void
+     * @throws ApiError
+     */
+    public static claimBoostV1PaymentsBoostClaimPost(
+        requestId: string,
+        listingId: string,
+    ): CancelablePromise<void> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/v1/payments/boost/claim',
+            query: {
+                'request_id': requestId,
+                'listing_id': listingId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
         });
     }
     /**
