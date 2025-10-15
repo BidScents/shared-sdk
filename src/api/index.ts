@@ -21,6 +21,7 @@ export type { Boost } from './models/Boost';
 export type { BoostRequest } from './models/BoostRequest';
 export { BoostType } from './models/BoostType';
 export type { BuyerTransactionData } from './models/BuyerTransactionData';
+export type { ClaimBoostRequest } from './models/ClaimBoostRequest';
 export type { CommentContent } from './models/CommentContent';
 export type { CommentDetails } from './models/CommentDetails';
 export type { CommentRequest } from './models/CommentRequest';

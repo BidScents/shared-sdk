@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BoostRequest } from '../models/BoostRequest';
+import type { ClaimBoostRequest } from '../models/ClaimBoostRequest';
 import type { MessageResData } from '../models/MessageResData';
 import type { PaymentResponse } from '../models/PaymentResponse';
 import type { ProductResponse } from '../models/ProductResponse';
@@ -162,22 +163,18 @@ export class PaymentsService {
     /**
      * Claim Boost
      * Claims a boost after purchasing boost tokens via RevenueCat
-     * @param requestId ID of the boost request to claim
-     * @param listingId ID of the listing to boost
+     * @param requestBody
      * @returns void
      * @throws ApiError
      */
     public static claimBoostV1PaymentsBoostClaimPost(
-        requestId: string,
-        listingId: string,
+        requestBody: ClaimBoostRequest,
     ): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/v1/payments/boost/claim',
-            query: {
-                'request_id': requestId,
-                'listing_id': listingId,
-            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 422: `Validation Error`,
             },
