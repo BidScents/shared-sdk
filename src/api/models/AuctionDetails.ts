@@ -36,5 +36,9 @@ export type AuctionDetails = {
      * End time for the auction, in ISO 8601 format
      */
     ends_at: string;
+    /**
+     * Indicates whether the auction end time can be extended
+     */
+    is_extendable: boolean;
 };
 

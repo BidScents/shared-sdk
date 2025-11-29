@@ -17,6 +17,7 @@ export type { BidDetails } from './models/BidDetails';
 export type { BidRequest } from './models/BidRequest';
 export type { BidResData } from './models/BidResData';
 export type { BidResponse } from './models/BidResponse';
+export type { Body_send_notifications_v1_admin_notification_post } from './models/Body_send_notifications_v1_admin_notification_post';
 export type { Boost } from './models/Boost';
 export type { BoostRequest } from './models/BoostRequest';
 export { BoostType } from './models/BoostType';
@@ -119,6 +120,7 @@ export type { WSMessageResponse } from './models/WSMessageResponse';
 export { WSType } from './models/WSType';
 export type { WSTypingRequest } from './models/WSTypingRequest';
 
+export { AdminService } from './services/AdminService';
 export { AuctionsService } from './services/AuctionsService';
 export { AuthService } from './services/AuthService';
 export { DashboardService } from './services/DashboardService';

@@ -16,4 +16,5 @@ export enum NotificationType {
     RECEIPT_CONFIRMED = 'receipt_confirmed',
     MESSAGE = 'message',
     LISTING_FROZEN = 'listing_frozen',
+    ADMIN_BROADCAST = 'admin_broadcast',
 }
