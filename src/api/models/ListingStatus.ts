@@ -9,4 +9,5 @@ export enum ListingStatus {
     SOLD = 'SOLD',
     AUCTION_PENDING = 'AUCTION_PENDING',
     DELETED = 'DELETED',
+    SOLD_OUTSIDE = 'SOLD_OUTSIDE',
 }

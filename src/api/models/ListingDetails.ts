@@ -60,7 +60,7 @@ export type ListingDetails = {
      */
     remaining_percentage: number;
     /**
-     * Type of the listing (e.g., FIXED_PRICE, AUCTION, SWAP)
+     * Type of the listing (e.g., NEW, AUCTION, SWAP)
      */
     listing_type: ListingType;
 };

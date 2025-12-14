@@ -6,5 +6,6 @@ export type UserPreview = {
     id: string;
     username: string;
     profile_image_url?: (string | null);
+    badges?: Array<string>;
 };
 

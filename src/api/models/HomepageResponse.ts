@@ -13,9 +13,17 @@ export type HomepageResponse = {
      */
     recent_auctions: Array<ListingCard>;
     /**
-     * Recent fixed price or negotiable listings
+     * Recent new listings
      */
-    recent_listings: Array<ListingCard>;
+    recent_new: Array<ListingCard>;
+    /**
+     * Recent preowned listings
+     */
+    recent_preowned: Array<ListingCard>;
+    /**
+     * Recent decant listings
+     */
+    recent_decant: Array<ListingCard>;
     /**
      * Listings from sellers you follow
      */

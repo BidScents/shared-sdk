@@ -42,7 +42,7 @@ export type ListingCard = {
      */
     seller: UserPreview;
     /**
-     * Type of the listing (e.g., FIXED_PRICE, NEGOTIABLE)
+     * Type of the listing (e.g., DECANT, AUCTION)
      */
     listing_type: ListingType;
     /**

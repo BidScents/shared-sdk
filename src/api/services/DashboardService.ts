@@ -78,6 +78,26 @@ export class DashboardService {
         });
     }
     /**
+     * Mark Listing Sold
+     * @param listingId
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static markListingSoldV1DashboardListingListingIdMarkSoldPatch(
+        listingId: string,
+    ): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'PATCH',
+            url: '/v1/dashboard/listing/{listing_id}/mark-sold',
+            path: {
+                'listing_id': listingId,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
      * Get Pending Auctions
      * Get a user's auction listings
      * @param page
@@ -221,7 +241,7 @@ export class DashboardService {
      * @throws ApiError
      */
     public static getUserTransactionsV1DashboardTransactionsGet(
-        cursor: string = '2025-09-27T11:47:42.596663+00:00',
+        cursor: string = '2025-12-14T20:19:29.038538+00:00',
         limit: number = 20,
     ): CancelablePromise<TransactionResponse> {
         return __request(OpenAPI, {

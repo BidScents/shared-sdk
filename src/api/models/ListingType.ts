@@ -3,8 +3,11 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum ListingType {
-    FIXED_PRICE = 'FIXED_PRICE',
-    NEGOTIABLE = 'NEGOTIABLE',
+    NEW = 'NEW',
+    PREOWNED = 'PREOWNED',
+    DECANT = 'DECANT',
     AUCTION = 'AUCTION',
     SWAP = 'SWAP',
+    FIXED_PRICE = 'FIXED_PRICE',
+    NEGOTIABLE = 'NEGOTIABLE',
 }

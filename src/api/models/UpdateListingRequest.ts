@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { ListingBoxCondition } from './ListingBoxCondition';
 import type { ListingCategory } from './ListingCategory';
+import type { ListingType } from './ListingType';
 /**
  * Request model for updating a listing.
  */
@@ -56,6 +57,10 @@ export type UpdateListingRequest = {
      * List of image URLs for the listing
      */
     image_urls?: (Array<string> | null);
+    /**
+     * Type of the listing
+     */
+    type?: (ListingType | null);
     /**
      * Starting price for auction listings
      */
