@@ -60,7 +60,7 @@ export type UpdateListingRequest = {
     /**
      * Type of the listing
      */
-    type?: (ListingType | null);
+    listing_type?: (ListingType | null);
     /**
      * Starting price for auction listings
      */
